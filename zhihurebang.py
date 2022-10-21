@@ -9,7 +9,7 @@ import csv
 
 
 # 创建csv文件并写入标题
-f = open('data1.csv','w',encoding='utf-8')
+f = open('data1.csv','w',encoding='utf-8',newline='')
 mydic = {
     'title':'标题',
     'class':'分类',
@@ -43,13 +43,13 @@ while n<100:
     content_str = json.dumps(content,ensure_ascii=False)
 
     # 解析数据
-    obj = re.compile(r'"title": "(?P<title>.*?)", "highlight_title":.*?"name": "(?P<class1>.*?)"},.*?"name":.*?"score": (?P<number>.*?),.*?{"url": "(?P<ul>.*?)",',re.S)
+    obj = re.compile(r'"title": "(?P<title>.*?)", "highlight_title":.*?"name": "(?P<class1>.*?)"}.*?"name":.*?"score": (?P<number>.*?),.*?{"url": "(?P<ul>.*?)",',re.S)
 
     result = obj.finditer(content_str)
 
-    # 保存数据
-    f = open('data1.csv','a',encoding='utf-8')
+    f = open('data1.csv','a',encoding='utf-8',newline='')
 
+    # 保存数据
     csvwriter = csv.writer(f)
     
     for it in result:

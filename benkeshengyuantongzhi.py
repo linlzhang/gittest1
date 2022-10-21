@@ -7,7 +7,7 @@ import re
 import csv
 
 # 创建csv文件并写入标题
-f = open('data3.csv','w',encoding='utf-8')
+f = open('data3.csv','w',encoding='utf-8',newline='')
 mydic = {
     'ul':'通知链接',
     'title':'通知标题',
@@ -44,7 +44,8 @@ while n != 11:
 
     result = obj.finditer(contant)
 
-    f = open('data3.csv','a',encoding='utf-8')
+    # 保存数据
+    f = open('data3.csv','a',encoding='utf-8',newline='')
 
     csvwriter = csv.writer(f)
     
