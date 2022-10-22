@@ -1,6 +1,6 @@
 # 抓取知乎热榜100条
 # 数据至少包含：热点分类，标题，链接，热力值
-# 数据保存到excel中
+# 数据保存到csv中
 
 import requests
 import json
@@ -13,6 +13,11 @@ f = open('data1.csv','w',encoding='utf-8',newline='')
 mydic = {
     'title':'标题',
     'class':'分类',
+    '1':'',
+    '2':'',
+    '3':'',
+    '4':'',
+    '5':'',
     'number':'热力值',
     'ul':'链接'
 }
@@ -43,7 +48,7 @@ while n<100:
     content_str = json.dumps(content,ensure_ascii=False)
 
     # 解析数据
-    obj = re.compile(r'"title": "(?P<title>.*?)", "highlight_title":.*?"name": "(?P<class1>.*?)"}.*?"name":.*?"score": (?P<number>.*?),.*?{"url": "(?P<ul>.*?)",',re.S)
+    obj = re.compile(r'"title": "(?P<title>.*?)", "highlight_title":.*?("name": "(?P<class4>.*?)"}.*?"name": "(?P<class5>.*?)"}.*?"name": "(?P<class6>.*?)"}|"name": "(?P<class2>.*?)"}.*?"name": "(?P<class3>.*?)"}|"name": "(?P<class1>.*?)"}).*?"name":.*?"score": (?P<number>.*?),.*?{"url": "(?P<ul>.*?)",',re.S)
 
     result = obj.finditer(content_str)
 
