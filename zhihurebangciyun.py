@@ -19,7 +19,7 @@ def One_Plan():
     now_Time = datetime.now()
   
     # 设置 任务启动时间
-    plan_Time = now_Time.replace(hour=10, minute=57, second=0, microsecond=0) 
+    plan_Time = now_Time.replace(hour=8, minute=0, second=0, microsecond=0) 
   
     # 设置差值
     delta = plan_Time - now_Time
