@@ -12,7 +12,7 @@ from datetime import datetime
 
 def One_Plan():
     # 设置启动周期
-    Second_update_time = 24 * 60 * 60    
+    Second_update_time = 60 * 60    
 
     # 当前时间  
     now_Time = datetime.now()
